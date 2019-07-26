@@ -48,8 +48,7 @@ export default class Fetcher {
   }
 
   public async run(options: IFetcherRun) {
-
-    const { empty = false, watch = false, group } = options;
+    const { empty = false, watch = false, group, repoPublic = 1 } = options;
     const queue = this.queue;
     const client = this.client;
 
@@ -70,7 +69,7 @@ export default class Fetcher {
     this.save('repos.json', repos);
 
     // filter books
-    const books = repos.filter((repo) => repo.public === 3 && repo.type === 'Book');
+    const books = repos.filter((repo) => repo.public === repoPublic && repo.type === 'Book');
     this.save('books.json', books);
 
     // get books
@@ -133,4 +132,5 @@ interface IFetcherRun {
   group: string;
   empty?: boolean;
   watch?: boolean;
+  repoPublic?: number;
 }
