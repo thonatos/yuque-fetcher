@@ -1,0 +1,52 @@
+{
+  "name": "yuque-loader",
+  "version": "1.0.0",
+  "description": "Yuque Loader",
+  "keywords": [
+    "Yuque"
+  ],
+  "main": "index.js",
+  "scripts": {
+    "build": "tsc",
+    "ci": "npm run test",
+    "clean": "rm -f index.{js,d.ts,d.ts.map} lib/*.{js,d.ts,d.ts.map} test/*.{js,d.ts,d.ts.map}",
+    "dev": "tsc -w",
+    "lint": "tslint --project . ",
+    "semantic-release": "semantic-release",
+    "test": "jest --verbose",
+    "test-watch": "jest --watch"
+  },
+  "dependencies": {
+    "@yuque/sdk": "^1.1.1",
+    "debug": "^4.1.1",
+    "fs-extra": "^8.1.0",
+    "p-queue": "^6.1.0",
+    "semver": "^6.1.0"
+  },
+  "devDependencies": {
+    "@types/debug": "^4.1.4",
+    "@types/dotenv": "^6.1.1",
+    "@types/fs-extra": "^8.0.0",
+    "@types/jest": "^24.0.13",
+    "@types/node": "^12.0.2",
+    "@types/semver": "^6.0.0",
+    "dotenv": "^8.0.0",
+    "jest": "^24.8.0",
+    "semantic-release": "^15.13.18",
+    "ts-jest": "^24.0.2",
+    "tslint": "^5.16.0",
+    "typescript": "^3.4.5"
+  },
+  "release": {
+    "branche": "master",
+    "plugins": [
+      "@semantic-release/commit-analyzer",
+      "@semantic-release/release-notes-generator",
+      "@semantic-release/npm",
+      "@semantic-release/github"
+    ]
+  },
+  "author": "Thonatos.Yang",
+  "license": "MIT",
+  "repository": "git@github.com:thonatos/yuque-loader.git"
+}
