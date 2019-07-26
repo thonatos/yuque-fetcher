@@ -1,17 +1,25 @@
 sudo: false
 os:
-  - linux
-  - osx
+- linux
+- osx
 language: node_js
 node_js:
-  - '8'
-  - '10'
+- '8'
+- '10'
 before_install:
-  - npm install npminstall -g
+- npm install npminstall -g
 install:
-  - npminstall
-  - npminstall codecov
+- npminstall
+- npminstall codecov
 script:
-  - npm run ci
+- npm run ci
 after_script:
-  - codecov
+- codecov
+env:
+  global:
+  # YUQUE_GROUP
+  - secure: FKfAnarX6to5n3T0LX25fkl76LWvC9uhxTR8MPRrZTp5yVzjU6t+W1QaNjiEMRDOQntr7CPydLjwvUkKDUmaC5KwQ9r2JIRMW82XFRbPkJNpFxCHuORnRl8Hls20MD9X6dAcakgzAI0JwryptTf7HxPFFMTp22X5ASSpUrJVfX9bdrVCgX7nExSuSB0KC+mh7lq1EeFLwJODMvaQRory0qYqIYGkq0TkeWd35qcg3Sp4gvnV7PRcc27R9PJZ3cEv9f1djF0Z2VTpIsGihfBmDgGKdX2G6GqEa9ZpH6JKRBhQ2atkQhQJTFz4RfDaqU1eC3t7euNLcnCnqORKspk1JGbu4ASVR43FWn0MA1YzhUzGt9awRkDLVvR6VKt2/WhQ0z+0L5nD9tUit6H//bwEv9UPaOfpHGJ1TRI39gYg1C+BJojzVVEY4/BsvAtPTifQWR+eSaxL30VVcz4eEkBg3WBIFr35zZ+c57S203sThzfJuBD3WX6kghKcO6EDbe4qU1485QdSV8T6AZL1HvIQLxOz+y+SYxWgA8uQCWSzshYY0/VkBlXNr1yQEIeOuz+8ini8ZjqS2pZXnXaer3DLHtl6VhI1ev/2j8FPwda4UdsRRliGpOL6eqKkggcE+ti1sU84ODsCvN43EKB8JrviIwAWAm614p5uHcmSCqmEE1s=
+  # YUQUE_TOKEN
+  - secure: aZVU7/AMAJoC7fgeSuWLDKC5xxmQDawedOlZG5JimY6Mu/Dffg67bD570W8PzrPsp3nDavr28o2UimUgEJLuB2l8BTSci9wv+94jBBOGsD4CdF+dCAjYO2d4RWz2IRIsX9s/CFYTX6FrsmoFeOQfwtwxbMQVct/3R2BhtYS+qmxavMrwsbrs3hNyESoNesojDpGTw/Lhm+alSm/t99iRVFVyf0TQ8f80Ss1qQBqeaANGcOrOjyHqe1kPPGOHp/iUhSg+KLa4dEs2wRH0+mTVASf3T8kItZedj/t1hkP2m7FgiPf+er+SkBMKAhH56ClLiZJI3SAzqg9yF6iaRLvH6sDIl6yuwFOPy8OaYtoyCtKt4HrmJ8rJ4iJfSp0DCqjdSlqJxrm6Lms1OOKPHwppGeBqyQk8H0AvTW47EhnxQUgfgTZaTnyuS5+XIgrf4fBWzqUJRapn715Pty8hPADRozdge5XR07t8GQPdtKnx9EWO+TXh5gYUV5ycEy8+fWdbclCbsEHUtvtqLD8aqk4v1hmWS5XuDasTv/A89k48KIeQVOqJSa8Vtsf2hpIIVMmt2kAfre1aWr0g1Y5xsXLSJaN6Ov0C+DcZ8Zfd3CbLbfxFnOmjFt6qsFHoI85ailaRxdyJS8skROnXlBChMFeIoADCm7GET8PetpuSnmqgh+M=
+  # YUQUE_ENDPOINT
+  - secure: HaJuNulFEv+vuhF2e/QmVBSuRPPRmCPP/hb31+w2LuUG3QWEuSUff7AQ6EOQGJn67WRq4bI5AebrLDF1eyATijm+mUQHb20oknVBEKqYk6R4bgEuewwVi/dl9/GU2HAxaHjdXtlkWJ7khZL66zR+95vWaYEkZ/7hAyZDEHORbQVQH6ZgtR20T/qVZMJ6iagQKc447FBqemMt1TImka7lGdrNBAXJHOZNq3oqBJoIpb+TAqGtuKROjDmC/BIMa+KeE0wly+bTJzfH3n5hpvwcOd2VF7n68HZEVkaL5ROKAhECBYq11HW7Anfpw6uVkaBJai8/UQc5x9NbgksHCf/Z3GSD+iXJA8AOFjhWhNjvQMxn2n0z24jiTiu7oPr12lrXIg5sITVSgIu/gU4BbV9nhJ4xwWa23NXmtNE1zFUti1N6ciKrsF0m4mRFLttH0Uat+wbMhMLsw7sLS4pbLyNPpSrYfgHdzrdjmmybn55SqQ/ctWZQLhJhdYAu0waEYeuAEApKXth2TlYLUo+XIC79lidbiPRlp2GgcdSW/MiNcP41xKZrjmtUVkRKPmJECx3P8ezbP6FVTLLtOM9jPWWgzl4iNyaSIVGOG+zCsnGg/AKHj8A9GeREBWxBFIFs/xVk7B3NfNaYFkCtjbodfcecKN494D2Ldz7hplzkJxT6NiQ=
