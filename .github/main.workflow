@@ -1,26 +1,26 @@
 ## workflow
 workflow "Push" {
   on = "push"
-  resolves = ["npm release"]
+  resolves = ["workman release"]
 }
 
 workflow "Pull Request" {
   on = "pull_request"
-  resolves = ["npm check"]
+  resolves = ["workman check"]
 }
 
 ## actions
 action "npm install" {
-  uses = "docker://node:lts-slim"
+  uses = "docker://thonatos/github-actions-nodejs"
   args = "npm install"
 }
 
 action "npm ci" {
-  uses = "docker://node:lts-slim"
+  uses = "docker://thonatos/github-actions-nodejs"
   needs = ["npm install"]
   env = {
-    YUQUE_ENDPOINT = "https://www.yuque.com/api/v2/"
     YUQUE_GROUP = "eggjs-dev"
+    YUQUE_ENDPOINT = "https://www.yuque.com/api/v2/"
   }
   secrets = [
     "YUQUE_TOKEN"
@@ -29,14 +29,14 @@ action "npm ci" {
 }
 
 action "npm build" {
-  uses = "docker://node:lts-slim"
+  uses = "docker://thonatos/github-actions-nodejs"
   needs = ["npm ci"]
   args = "npm run build"
 }
 
 ## target
-action "npm check" {
-  uses = "thonatos/github-actions-workman@1.4.0-Marketplace"
+action "workman check" {
+  uses = "thonatos/github-actions-workman@master"
   needs = ["npm ci"]
   args = "workman check"
   secrets = [
@@ -45,8 +45,8 @@ action "npm check" {
   ]
 }
 
-action "npm release" {
-  uses = "thonatos/github-actions-workman@1.4.0-Marketplace"
+action "workman release" {
+  uses = "thonatos/github-actions-workman@master"
   needs = ["filter master", "npm build"]
   args = "workman release"
   secrets = [
