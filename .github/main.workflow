@@ -18,9 +18,23 @@ action "npm install" {
 action "npm ci" {
   uses = "docker://node:lts-slim"
   needs = ["npm install"]
+  env = {
+    YUQUE_ENDPOINT = "https://www.yuque.com/api/v2/"
+    YUQUE_GROUP = "eggjs-dev"
+  }
+  secrets = [
+    "YUQUE_TOKEN"
+  ]
   args = "npm run ci"
 }
 
+action "npm build" {
+  uses = "docker://node:lts-slim"
+  needs = ["npm ci"]
+  args = "npm run build"
+}
+
+## target
 action "npm check" {
   uses = "thonatos/github-actions-workman@1.4.0-Marketplace"
   needs = ["npm ci"]
@@ -33,7 +47,7 @@ action "npm check" {
 
 action "npm release" {
   uses = "thonatos/github-actions-workman@1.4.0-Marketplace"
-  needs = ["filter master", "npm ci"]
+  needs = ["filter master", "npm build"]
   args = "workman release"
   secrets = [
     "GITHUB_TOKEN",
