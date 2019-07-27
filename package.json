@@ -1,6 +1,6 @@
 {
   "name": "yuque-loader",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Yuque Loader",
   "keywords": [
     "Yuque"
@@ -14,7 +14,8 @@
     "lint": "tslint --project . ",
     "semantic-release": "tsc && semantic-release",
     "test": "jest --verbose",
-    "test-watch": "jest --watch"
+    "test-watch": "jest --watch",
+    "commits": "./scripts/commits.sh"
   },
   "dependencies": {
     "@yuque/sdk": "^1.1.1",
