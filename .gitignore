@@ -93,5 +93,7 @@ yarn.lock
 *.js
 *.d.ts
 *.d.ts.map
+
+test/docs/
+
 !jest.config.js
-test/data/
