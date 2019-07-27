@@ -36,7 +36,7 @@ action "npm build" {
 
 ## target
 action "workman check" {
-  uses = "thonatos/github-actions-workman@master"
+  uses = "thonatos/github-actions-workman@1.5.4-Marketplace"
   needs = ["npm ci"]
   args = "workman check"
   secrets = [
@@ -46,7 +46,7 @@ action "workman check" {
 }
 
 action "workman release" {
-  uses = "thonatos/github-actions-workman@master"
+  uses = "thonatos/github-actions-workman@1.5.4-Marketplace"
   needs = ["filter master", "npm build"]
   args = "workman release"
   secrets = [
