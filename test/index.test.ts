@@ -19,7 +19,7 @@ describe('index.ts', () => {
 
   const workspace = path.join(
     path.resolve(__dirname) || process.cwd(),
-    'data'
+    'docs'
   );
 
   const loader = new Loader({
@@ -30,12 +30,13 @@ describe('index.ts', () => {
   beforeAll(async () => {
     await loader.run({
       empty: true,
+      watch: true,
       group: process.env.YUQUE_GROUP || 'default',
     });
   }, 30 * 1000);
 
   afterAll(() => {
-    fs.emptyDirSync(workspace);
+    // fs.emptyDirSync(workspace);
   });
 
   test('should init client', () => {
@@ -55,7 +56,7 @@ describe('index.ts', () => {
   test('should load book', async () => {
     const books = fs.readJSONSync(path.join(workspace, 'books.json'));
     const { slug } = books[0];
-    const docs = fs.readJSONSync(path.join(workspace, `${slug}/__docs.json`));
+    const docs = fs.readJSONSync(path.join(workspace, `${slug}/.docs.json`));
     expect(docs.length).toBeGreaterThan(0);
   });
 });
