@@ -11,7 +11,7 @@
 [egg-square]: https://img.shields.io/badge/Awesome-Egg.js-ff69b4.svg?style=flat-square
 [egg-url]: https://eggjs.org/
 [npm-square]: https://img.shields.io/npm/v/yuque-loader.svg?style=flat-square
-[npm-url]: https://www.npmjs.com/package/thonatos/yuque-loader
+[npm-url]: https://www.npmjs.com/package/yuque-loader
 [codecov-square]: https://img.shields.io/codecov/c/github/thonatos/yuque-loader.svg?style=flat-square
 [codecov-url]: https://codecov.io/gh/thonatos/yuque-loader
 [travis-square]: https://img.shields.io/travis/thonatos/yuque-loader.svg?style=flat-square
