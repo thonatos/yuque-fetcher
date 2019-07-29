@@ -36,7 +36,7 @@ describe('index.ts', () => {
   }, 30 * 1000);
 
   afterAll(() => {
-    // fs.emptyDirSync(workspace);
+    fs.emptyDirSync(workspace);
   });
 
   test('should init client', () => {

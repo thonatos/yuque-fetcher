@@ -36,7 +36,7 @@ action "npm build" {
 
 ## target
 action "workman check" {
-  uses = "thonatos/github-actions-workman@1.5.4-Marketplace"
+  uses = "thonatos/github-actions-workman@1.6.0-Marketplace"
   needs = ["npm ci"]
   args = "workman check"
   secrets = [
@@ -46,9 +46,9 @@ action "workman check" {
 }
 
 action "workman release" {
-  uses = "thonatos/github-actions-workman@1.5.4-Marketplace"
-  needs = ["filter master", "npm build"]
-  args = "workman release"
+  uses = "thonatos/github-actions-workman@1.6.0-Marketplace"
+  needs = ["npm build"]
+  args = "workman release --releaseBranch master"
   secrets = [
     "GITHUB_TOKEN",
     "NPM_TOKEN"
@@ -56,8 +56,8 @@ action "workman release" {
 }
 
 ## filter
-action "filter master" {
-  uses = "actions/bin/filter@3c0b4f0e63ea54ea5df2914b4fabf383368cd0da"
-  secrets = ["GITHUB_TOKEN"]
-  args = "branch master"
-}
+# action "filter master" {
+#   uses = "actions/bin/filter@3c0b4f0e63ea54ea5df2914b4fabf383368cd0da"
+#   secrets = ["GITHUB_TOKEN"]
+#   args = "branch master"
+# }
