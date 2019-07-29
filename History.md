@@ -1,5 +1,16 @@
 # History
 
+## 2019-07-29, Version 1.0.2 @thonatos
+
+### Notable changes
+
+* **fixes**
+  * remove filter
+
+### Commits
+
+* [[`d7f7724`](http://github.com/thonatos/yuque-loader/commit/d7f77245b450988fedc574a5c71b691b56262d95)] - chore: remove filter (Suyi <<thonatos.yang@gmail.com>>)
+
 ## 2019-07-27, Version 1.0.1 @thonatos
 
 ### Notable changes
