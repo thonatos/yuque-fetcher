@@ -19,14 +19,32 @@ export default class Fetcher {
     this.workspace = workspace || path.join(process.cwd(), target);
   }
 
-  public async getRepos(group: string, repoPublic: number = 1) {
+  public async getRepos(group: string, filter) {
     const client = this.client;
+
+    const { public: repoPublic = 1, slug = '', type = 'Book' } = filter || {};
 
     const repos = await client.repos.list({
       group,
     });
 
-    const books = repos.filter((repo) => repo.public === repoPublic && repo.type === 'Book');
+    const books = repos.filter((repo) => {
+      let f = true;
+
+      if(repoPublic) {
+        f = repo.public === repoPublic;
+      }
+
+      if(slug) {
+        f = f && repo.type === type;
+      }
+
+      if(type) {
+        f = f && repo.slug === slug;
+      }
+    
+      return f;
+    });
 
     return {
       books,
@@ -62,7 +80,7 @@ export default class Fetcher {
   }
 
   public async run(options: IFetcherRun) {
-    const { empty = false, watch = false, group, repoPublic = 1 } = options;
+    const { empty = false, watch = false, group,  filter } = options;
     const queue = this.queue;
 
     // clean
@@ -76,7 +94,7 @@ export default class Fetcher {
     }
 
     // fetch
-    const { repos, books } = await this.getRepos(group, repoPublic);
+    const { repos, books } = await this.getRepos(group, filter);
     this.save('repos.json', repos);
     this.save('books.json', books);
 
@@ -148,5 +166,9 @@ interface IFetcherRun {
   group: string;
   empty?: boolean;
   watch?: boolean;
-  repoPublic?: number;
+  filter?: {
+    type?: string;
+    slug?: string;
+    public?: number;
+  }
 }
