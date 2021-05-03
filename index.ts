@@ -31,18 +31,18 @@ export default class Fetcher {
     const books = repos.filter((repo) => {
       let f = true;
 
-      if(repoPublic) {
+      if (repoPublic) {
         f = repo.public === repoPublic;
       }
 
-      if(slug) {
+      if (slug) {
         f = f && repo.type === type;
       }
 
-      if(type) {
+      if (type) {
         f = f && repo.slug === slug;
       }
-    
+
       return f;
     });
 
@@ -170,5 +170,5 @@ interface IFetcherRun {
     type?: string;
     slug?: string;
     public?: number;
-  }
+  };
 }
