@@ -80,7 +80,7 @@ export default class Fetcher {
   }
 
   public async run(options: IFetcherRun) {
-    const { empty = false, watch = false, group,  filter } = options;
+    const { empty = false, watch = false, group, user , filter } = options;
     const queue = this.queue;
 
     // clean
@@ -94,7 +94,7 @@ export default class Fetcher {
     }
 
     // fetch
-    const { repos, books } = await this.getRepos(group, filter);
+    const { repos, books } = await this.getRepos(user || group, filter);
     this.save('repos.json', repos);
     this.save('books.json', books);
 
@@ -164,6 +164,7 @@ interface IFetcher {
 
 interface IFetcherRun {
   group: string;
+  user?: string;
   empty?: boolean;
   watch?: boolean;
   filter?: {
