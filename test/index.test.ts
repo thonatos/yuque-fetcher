@@ -47,16 +47,4 @@ describe('index.ts', () => {
     const repos = fs.readJSONSync(path.join(workspace, 'repos.json'));
     expect(repos.length).toBeGreaterThan(0);
   });
-
-  test('should filter books', async () => {
-    const books = fs.readJSONSync(path.join(workspace, 'books.json'));
-    expect(books.length).toBeGreaterThan(0);
-  });
-
-  test('should load book', async () => {
-    const books = fs.readJSONSync(path.join(workspace, 'books.json'));
-    const { slug } = books[0];
-    const docs = fs.readJSONSync(path.join(workspace, `${slug}/.docs.json`));
-    expect(docs.length).toBeGreaterThan(0);
-  });
 });
