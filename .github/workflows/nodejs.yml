@@ -35,6 +35,10 @@ jobs:
 
     - name: Continuous Integration
       run: npm run ci
+      env:
+        YUQUE_TOKEN: ${{ secrets.YUQUE_TOKEN }}
+        YUQUE_GROUP: eggjs-dev
+        YUQUE_ENDPOINT: https://www.yuque.com/api/v2/
 
     - name: Code Coverage
       uses: codecov/codecov-action@v1
