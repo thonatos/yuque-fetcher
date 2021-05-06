@@ -19,7 +19,7 @@ describe('index.ts', () => {
 
   const workspace = path.join(
     path.resolve(__dirname) || process.cwd(),
-    'docs'
+    'docs',
   );
 
   const loader = new Loader({

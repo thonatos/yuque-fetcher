@@ -28,7 +28,7 @@ export default class Fetcher {
       group,
     });
 
-    const books = repos.filter((repo) => {
+    const books = repos.filter(repo => {
       let f = true;
 
       if (repoPublic) {
@@ -80,7 +80,7 @@ export default class Fetcher {
   }
 
   public async run(options: IFetcherRun) {
-    const { empty = false, watch = false, group, user , filter } = options;
+    const { empty = false, watch = false, group, user, filter } = options;
     const queue = this.queue;
 
     // clean
@@ -110,7 +110,7 @@ export default class Fetcher {
             this.save(`${bookSlug}/${docSlug}.json`, doc);
             this.save(`${bookSlug}/${docSlug}.md`, doc.body.toString());
           });
-        })
+        }),
       );
     }));
 
@@ -139,7 +139,7 @@ export default class Fetcher {
 
     queue.on('active', () => {
       process.stdout.write(
-        `Working on item #${++count}.  Size: ${queue.size}  Pending: ${queue.pending}`
+        `Working on item #${++count}.  Size: ${queue.size}  Pending: ${queue.pending}`,
       );
     });
   }
