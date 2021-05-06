@@ -22,7 +22,7 @@ export default class Fetcher {
   public async getRepos(group: string, filter) {
     const client = this.client;
 
-    const { public: repoPublic = 1, slug = '', type = 'Book' } = filter || {};
+    const { public: repoPublic, slug = '', type = 'Book' } = filter || {};
 
     const repos = await client.repos.list({
       group,
@@ -35,11 +35,11 @@ export default class Fetcher {
         f = repo.public === repoPublic;
       }
 
-      if (slug) {
+      if (type) {
         f = f && repo.type === type;
       }
 
-      if (type) {
+      if (slug) {
         f = f && repo.slug === slug;
       }
 

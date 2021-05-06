@@ -10,8 +10,8 @@ const options = {
     concurrency: 20,
   },
   yuque: {
-    endpoint: process.env.YUQUE_ENDPOINT,
     token: process.env.YUQUE_TOKEN,
+    endpoint: process.env.YUQUE_ENDPOINT,
   },
 };
 
@@ -32,6 +32,9 @@ describe('index.ts', () => {
       empty: true,
       watch: true,
       group: process.env.YUQUE_GROUP || 'default',
+      filter: {
+        type: 'Column',
+      },
     });
   }, 30 * 1000);
 
