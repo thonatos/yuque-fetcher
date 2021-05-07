@@ -1,8 +1,9 @@
 module.exports = {
-  "roots": [
+  roots: [
     "./test"
-  ],
-  "transform": {
+  ],  
+  transform: {
     "^.+\\.tsx?$": "ts-jest"
   },
+  collectCoverage: true,
 }
