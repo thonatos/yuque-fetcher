@@ -4,7 +4,6 @@
 [![Semantic Release][semantic-release-square]][semantic-release-url]
 [![NPM Version][npm-square]][npm-url]
 [![Codecov][codecov-square]][codecov-url]
-[![Travis][travis-square]][travis-url]
 
 [license-square]: https://img.shields.io/badge/license-MIT-blue.svg?style=flat-square
 [license-url]: https://github.com/thonatos/yuque-loader/blob/HEAD/LICENSE
@@ -14,8 +13,6 @@
 [npm-url]: https://www.npmjs.com/package/yuque-loader
 [codecov-square]: https://img.shields.io/codecov/c/github/thonatos/yuque-loader.svg?style=flat-square
 [codecov-url]: https://codecov.io/gh/thonatos/yuque-loader
-[travis-square]: https://img.shields.io/travis/thonatos/yuque-loader.svg?style=flat-square
-[travis-url]: https://travis-ci.org/thonatos/yuque-loader
 [semantic-release-square]: https://img.shields.io/badge/%20%20%F0%9F%93%A6%F0%9F%9A%80-semantic--release-e10079.svg?style=flat-square
 [semantic-release-url]: https://github.com/semantic-release/semantic-release
 
